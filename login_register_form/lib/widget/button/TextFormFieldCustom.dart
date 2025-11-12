@@ -1,20 +1,22 @@
-
 import 'package:flutter/material.dart';
 
-class Textformfieldcustom extends StatelessWidget {
-  Textformfieldcustom({
+class TextFormFieldcustom extends StatelessWidget {
+  TextFormFieldcustom({
     super.key,
     required this.controller,
 
     required this.hint,
-    this.obscure = false, required this.validate,
+    this.obscure = false,
+    required this.validator,
   });
-  final String? Function(String?) validate;
+
+  final String? Function(String?) validator;
 
   final TextEditingController controller;
 
   final String hint;
-  bool obscure ;
+  final bool obscure;
+
   @override
   Widget build(BuildContext context) {
     return TextFormField(
@@ -22,9 +24,9 @@ class Textformfieldcustom extends StatelessWidget {
         hint: Text(hint),
         border: OutlineInputBorder(),
         fillColor: Color(0xFFF1F4FF),
-        filled: true
+        filled: true,
       ),
-      validator:  validate,
+      validator: validator,
       controller: controller,
       obscureText: obscure,
     );

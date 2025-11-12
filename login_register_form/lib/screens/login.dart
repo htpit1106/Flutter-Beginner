@@ -47,23 +47,24 @@ class _LoginState extends State<LoginScreen> {
                   ],
                 ),
               ),
-              Container(
+              SingleChildScrollView(
                 padding: EdgeInsets.only(left: 16, right: 16),
                 child: Column(
                   children: [
-                    Textformfieldcustom(
+                    TextFormFieldcustom(
                       controller: _emailController,
-                      validate: (value){
+                      validator: (value){
                         if(value == null || value.isEmpty){
-                          return "Enter your emailk";
+                          return "Enter your email";
                         }
+                        return null;
                       },
                       hint: 'Email',
                     ),
                     SizedBox(height: 20),
-                    Textformfieldcustom(
+                    TextFormFieldcustom(
                       controller: _passwordController,
-                      validate: (value){
+                      validator: (value){
                         if(value == null || value.isEmpty){
                           return "Enter your password";
                         }

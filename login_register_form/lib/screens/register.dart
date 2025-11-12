@@ -56,9 +56,9 @@ class _RegisterState extends State<RegisterScreen> {
                 padding: EdgeInsets.only(left: 16, right: 16),
                 child: Column(
                   children: [
-                    Textformfieldcustom(
+                    TextFormFieldcustom(
                       controller: _emailController,
-                      validate: (value){
+                      validator: (value){
                         if(value == null || value.isEmpty){
                           return "Enter your email";
                         }
@@ -66,9 +66,9 @@ class _RegisterState extends State<RegisterScreen> {
                       hint: 'Email',
                     ),
                     SizedBox(height: 20),
-                    Textformfieldcustom(
+                    TextFormFieldcustom(
                       controller: _passwordController,
-                      validate: (value){
+                      validator: (value){
                         if(value == null || value.isEmpty){
                           return "Enter your password";
                         }
@@ -78,9 +78,9 @@ class _RegisterState extends State<RegisterScreen> {
                     ),
                     SizedBox(height: 20),
 
-                    Textformfieldcustom(
+                    TextFormFieldcustom(
                       controller: _confirmpasswordController,
-                      validate: (value){
+                      validator: (value){
                         if(value == null || value.isEmpty){
                           return "Enter confirm password";
                         }

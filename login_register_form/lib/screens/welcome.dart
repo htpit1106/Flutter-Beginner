@@ -23,21 +23,21 @@ class _WelcomeState extends State<WelcomeScreen> {
             Flexible(
               flex: 3,
 
-
-                child: Center(child: Image.asset("assets/images/welcome.png")),
-
+              child: Center(child: Image.asset("assets/images/welcome.png")),
             ),
             Flexible(
               flex: 4,
               child: Padding(
-                padding: const EdgeInsets.only(right: 43.0, left: 43.0),
+                padding: EdgeInsets.symmetric(
+                  horizontal: MediaQuery.of(context).size.width * 0.1,
+                ),
                 child: RichText(
                   textAlign: TextAlign.center,
                   text: TextSpan(
                     children: [
                       TextSpan(
                         text: "Discover Your Dream Job here\n",
-                        style: Theme.of(context).textTheme.titleLarge
+                        style: Theme.of(context).textTheme.titleLarge,
                       ),
                       TextSpan(
                         text:
@@ -50,20 +50,27 @@ class _WelcomeState extends State<WelcomeScreen> {
               ),
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Container(
-                  width: 150,
-                    child: AppButton(textButton: "Login", onPress: (){
+                SizedBox(width: 16),
+                Expanded(
+                  child: AppButton(
+                    textButton: "Login",
+                    onPress: () {
                       context.push('/login');
-                    },)),
-                Container(
-                  width: 150,
+                    },
+                  ),
+                ),
+                SizedBox(width: 16),
+                Expanded(
                   child: AppTextButton(
-                      textButton: "Register", onPress: (){
-                        context.go("/register");
-                  },),
-                )
+                    text: "Register",
+                    onPress: () {
+                      context.go("/register");
+                    },
+                  ),
+                ),
+                SizedBox(width: 16),
               ],
             ),
           ],
